@@ -26,10 +26,9 @@ RUN cd /tmp \
     && tar xzf s6-overlay-amd64.tar.gz -C / \
     && rm -f s6-overlay-amd64.tar.gz
 
-CMD ["/init"]
-
 WORKDIR /app
-
 VOLUME /app
 
 EXPOSE 80
+CMD ["/init"]
+

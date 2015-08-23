@@ -15,20 +15,11 @@ RUN mkdir -p /app/logs && chown -R nginx /app/logs
 
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
-
-ADD services.d/nginx /etc/services.d/nginx/
-ADD services.d/php-fpm /etc/services.d/php-fpm/
-
-# install s6 supervisor
-ENV S6_VERSION 1.13.0.0
-RUN cd /tmp \
-    && wget https://github.com/just-containers/s6-overlay/releases/download/v$S6_VERSION/s6-overlay-amd64.tar.gz \
-    && tar xzf s6-overlay-amd64.tar.gz -C / \
-    && rm -f s6-overlay-amd64.tar.gz
+ADD startup.sh /startup.sh
 
 WORKDIR /app
 VOLUME /app
 
 EXPOSE 80
-CMD ["/init"]
+CMD ["/startup.sh"]
 

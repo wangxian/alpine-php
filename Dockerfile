@@ -20,6 +20,6 @@ ADD startup.sh /startup.sh
 WORKDIR /app
 VOLUME /app
 
-EXPOSE 80
+EXPOSE 80 443
 CMD ["/startup.sh"]
 

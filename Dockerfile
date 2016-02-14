@@ -7,7 +7,7 @@ ENV HOME=/root
 RUN apk --update --no-progress add \
         nginx git curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \
-        php-pdo_mysql php-pdo_sqlite php-phar php-iconv \
+        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv \
 	&& rm -rf /var/cache/apk/* \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

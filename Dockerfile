@@ -13,6 +13,9 @@ RUN apk --update --no-progress add \
 
 RUN mkdir -p /app/logs && chown -R nginx /app/logs
 
+# copy app source to image
+ADD . .
+
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
 ADD startup.sh /startup.sh

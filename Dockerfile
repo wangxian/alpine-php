@@ -1,19 +1,18 @@
 FROM alpine:latest
 MAINTAINER WangXian <xian366@126.com>
 
-ENV HOME=/root
-
 # install packages
-RUN apk --update --no-progress add \
-        nginx git curl openssl \
+RUN apk add --update nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \
-        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv \
-	&& rm -rf /var/cache/apk/* \
-	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv php-redis
+
+# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata
+RUN rm /var/cache/apk/*
 
 RUN mkdir -p /app/logs && chown -R nginx /app/logs
 
-# copy app source to image
+# Copy app source to image
 ADD . .
 
 ADD conf/nginx.conf /etc/nginx/
@@ -25,4 +24,3 @@ VOLUME /app
 
 EXPOSE 80 443
 CMD ["/startup.sh"]
-

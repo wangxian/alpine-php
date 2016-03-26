@@ -4,7 +4,7 @@ MAINTAINER WangXian <xian366@126.com>
 # install packages
 RUN apk add --update nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \
-        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv php-redis
+        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv
 
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata

@@ -1,6 +1,9 @@
 FROM alpine:latest
 MAINTAINER WangXian <xian366@126.com>
 
+WORKDIR /app
+VOLUME /app
+
 # install packages
 RUN apk add --update nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \
@@ -20,10 +23,6 @@ ADD . .
 
 ADD conf/nginx.conf /etc/nginx/
 ADD conf/php-fpm.conf /etc/php/
-ADD startup.sh /startup.sh
-
-WORKDIR /app
-VOLUME /app
 
 EXPOSE 80 443
-CMD ["/startup.sh"]
+CMD ["./startup.sh"]

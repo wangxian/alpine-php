@@ -7,7 +7,7 @@ VOLUME /app
 # install packages
 RUN apk add --update nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \
-        php-mysql php-mysqli php-sqlite3 php-pdo php-pdo_mysql php-pdo_sqlite php-phar php-iconv php-soap php-zip php-zlib
+        php-mysql php-mysqli php-pdo_mysql php-pdo_sqlite php-phar php-iconv php-soap php-zip
 
 # Install testing php-redis
 RUN apk add php-redis --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && php -m

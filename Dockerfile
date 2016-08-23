@@ -4,6 +4,10 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 VOLUME /app
 
+RUN echo "ipv6" >> /etc/modules
+RUN echo "http://dl-5.alpinelinux.org/alpine/v3.3/main/" > /etc/apk/repositories
+RUN echo "http://dl-6.alpinelinux.org/alpine/v3.3/main/" >> /etc/apk/repositories
+
 # install packages
 RUN apk add --no-cache nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \

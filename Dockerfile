@@ -4,6 +4,8 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 VOLUME /app
 
+RUN echo "ipv6" >> /etc/modules
+
 # install packages
 RUN apk add --update nginx curl openssl \
         php-fpm php-mcrypt php-curl php-gd php-json php-openssl \

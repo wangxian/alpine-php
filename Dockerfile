@@ -16,8 +16,6 @@ RUN apk add php5-redis --update-cache --repository http://dl-5.alpinelinux.org/a
 RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata
 # RUN rm /var/cache/apk/*
 
-RUN mkdir -p /app/logs && chown -R nginx /app/logs
-
 # Copy app source to image
 ADD . .
 

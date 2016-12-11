@@ -23,4 +23,4 @@ ADD docker/nginx.conf /etc/nginx/
 ADD docker/php-fpm.conf /etc/php5/
 
 EXPOSE 80 443
-CMD ["./startup.sh"]
+CMD ["/bin/sh", "/app/startup.sh"]

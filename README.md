@@ -15,3 +15,10 @@ alpine-php
     │   └── js
     └── index.php
 ```
+
+
+# Build image
+docker build -t myapp .
+
+# Usage
+docker run -it --rm -p 8000:80 myapp

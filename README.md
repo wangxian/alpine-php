@@ -1,16 +1,13 @@
 # alpine-php
 This creates a Docker container running Nginx and PHP-FPM on Alpine Linux.
 
-期望的目录结构：
+Desired directory structure：
 ```
 alpine-php
 ├── Dockerfile
-├── conf
+├── docker
 │   ├── nginx.conf
 │   └── php-fpm.conf
-├── logs
-│   ├── nginx-access.log
-│   └── nginx-error.log
 └── www
     ├── app
     ├── assets

@@ -19,8 +19,8 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > 
 # Copy app source to image
 ADD . .
 
-ADD conf/nginx.conf /etc/nginx/
-ADD conf/php-fpm.conf /etc/php5/
+ADD docker/nginx.conf /etc/nginx/
+ADD docker/php-fpm.conf /etc/php5/
 
 EXPOSE 80 443
 CMD ["./startup.sh"]

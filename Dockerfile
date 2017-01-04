@@ -6,7 +6,7 @@ WORKDIR /app
 
 # install packages
 RUN apk add --update nginx curl openssl \
-        php5-fpm php5-mcrypt php5-curl php5-gd php5-json php5-openssl \
+        php5-fpm php5-mcrypt php5-curl php5-gd php5-json php5-openssl php5-opcache \
         php5-mysql php5-mysqli php5-pdo_mysql php5-pdo_sqlite php5-phar php5-iconv php5-soap php5-zip
 
 # Install testing php5-redis

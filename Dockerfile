@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.5
 MAINTAINER WangXian <xian366@126.com>
 
 WORKDIR /app
@@ -6,11 +6,11 @@ WORKDIR /app
 
 # install packages
 RUN apk add --update nginx curl openssl \
-        php5-fpm php5-mcrypt php5-curl php5-gd php5-json php5-openssl php5-opcache \
-        php5-mysql php5-mysqli php5-pdo_mysql php5-pdo_sqlite php5-phar php5-iconv php5-soap php5-zip
+        php7-fpm php7-mcrypt php7-curl php7-gd php7-json php7-openssl php7-opcache \
+        php7-mysql php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip
 
-# Install testing php5-redis
-RUN apk add php5-redis --update-cache --repository http://dl-5.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && php -m
+# Install testing php7-redis
+RUN apk add php7-redis --update-cache --repository http://dl-5.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && php -m
 
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata
@@ -20,7 +20,7 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > 
 ADD . .
 
 ADD docker/nginx.conf /etc/nginx/
-ADD docker/php-fpm.conf /etc/php5/
+ADD docker/php-fpm.conf /etc/php7/
 
 EXPOSE 80 443
 CMD ["/bin/sh", "/app/startup.sh"]

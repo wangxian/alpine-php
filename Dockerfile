@@ -27,6 +27,7 @@ RUN cd /tmp && wget https://github.com/swoole/swoole-src/archive/v2.0.6.zip \
 
 RUN echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini
 RUN rm -rfv /tmp/*
+RUN apk del php7-dev autoconf make pkgconf g++ gcc build-base
 
 
 # Copy app source to image

@@ -16,8 +16,8 @@ RUN apk add --update curl openssl \
 
     && rm /var/cache/apk/* \
 
-    && cd /tmp && wget https://github.com/swoole/swoole-src/archive/v2.0.6.zip \
-    && unzip v2.0.6.zip && cd swoole-src-2.0.6 \
+    && cd /tmp && wget https://github.com/swoole/swoole-src/archive/v2.0.7.zip \
+    && unzip v2.0.7.zip && cd swoole-src-2.0.7 \
 
     && /usr/bin/phpize7 && ./configure --enable-openssl --enable-sockets --enable-coroutine --with-php-config=/usr/bin/php-config7 \
     && make && make install \

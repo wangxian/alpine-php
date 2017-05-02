@@ -35,6 +35,7 @@ RUN apk add --update nginx curl openssl \
 
 # Copy app source to image
 ADD . .
+RUN rm -rf /app/.git && mv /app/docker/startup.sh /app
 
 ADD docker/nginx.conf /etc/nginx/
 ADD docker/php-fpm.conf /etc/php7/

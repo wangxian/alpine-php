@@ -8,7 +8,7 @@ alpine-php
 ├── docker
 │   ├── nginx.conf
 │   └── php-fpm.conf
-└── www
+└── public
     ├── js
     ├── img
     └── index.php

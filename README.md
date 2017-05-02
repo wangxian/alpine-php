@@ -9,10 +9,8 @@ alpine-php
 │   ├── nginx.conf
 │   └── php-fpm.conf
 └── www
-    ├── app
-    ├── assets
-    │   ├── img
-    │   └── js
+    ├── js
+    ├── img
     └── index.php
 ```
 

@@ -33,7 +33,7 @@ RUN apk add --update nginx curl openssl bash \
 
     && apk del php7-dev autoconf make pkgconf g++ gcc build-base && php -m
 
-# Copy app source to image
+# Copy source to image
 ADD . .
 RUN rm -rf /app/.git && mv /app/docker/startup.sh /app
 

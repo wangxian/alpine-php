@@ -16,14 +16,14 @@ RUN apk add --update nginx curl openssl bash \
     && rm -rfv /var/cache/apk/* \
 
     && cd /tmp \
-    && wget --no-check-certificate https://github.com/igbinary/igbinary/archive/2.0.4.zip \
+    && wget --no-check-certificate http://github.com/igbinary/igbinary/archive/2.0.4.zip \
     && unzip 2.0.4.zip && cd igbinary-2.0.4 \
     && /usr/bin/phpize7 && ./configure --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=igbinary.so >> /etc/php7/conf.d/01_igbinary.ini \
 
     && cd /tmp \
-    && wget --no-check-certificate https://github.com/phpredis/phpredis/archive/3.1.2.zip \
+    && wget --no-check-certificate http://github.com/phpredis/phpredis/archive/3.1.2.zip \
     && unzip 3.1.2.zip && cd phpredis-3.1.2 \
     && /usr/bin/phpize7 && ./configure --enable-redis-igbinary --with-php-config=/usr/bin/php-config7 \
     && make && make install \

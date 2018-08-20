@@ -5,7 +5,7 @@ WORKDIR /app
 # VOLUME /app
 
 # install packages
-RUN apk add --update nginx curl openssl wget bash \
+RUN apk add --update nginx curl openssl wget \
         php7-fpm php7-mcrypt php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \
         php7-mysqli php7-session php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip \
         php7-dev autoconf make pkgconf g++ gcc openssl-dev build-base linux-headers \

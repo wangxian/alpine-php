@@ -30,8 +30,8 @@ RUN apk add --update curl openssl wget bash\
     && echo extension=redis.so >> /etc/php7/conf.d/01_redis.ini \
 
     && cd /tmp \
-    && wget https://github.com/swoole/swoole-src/archive/v4.2.6.zip \
-    && unzip v4.2.6.zip && cd swoole-src-4.2.6 \
+    && wget https://github.com/swoole/swoole-src/archive/v4.2.7.zip \
+    && unzip v4.2.7.zip && cd swoole-src-4.2.7 \
     && /usr/bin/phpize7 && ./configure --enable-openssl --enable-sockets --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \

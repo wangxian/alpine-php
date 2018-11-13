@@ -38,7 +38,7 @@ RUN apk add --update curl openssl wget bash\
 
     && rm -rfv /tmp/* \
 
-    && apk del php7-dev autoconf make  pkgconf build-base && php -m
+    && apk del php7-dev autoconf make g++ gcc pkgconf build-base && php -m
 
 
 

@@ -7,7 +7,7 @@ WORKDIR /app
 ENV SWOOLE_VERSION=4.2.7
 
 # install packages
-RUN apk add --update curl wget bash openssl libstdc++ \
+RUN apk add --no-cache curl wget bash openssl libstdc++ \
         openssl-dev php7-dev \
         autoconf make pkgconf g++ gcc build-base linux-headers \
         php7-mcrypt php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \

@@ -40,7 +40,7 @@ RUN apk add --update curl wget bash openssl libstdc++ \
 
     && apk del openssl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
-    && php -m && php --ri swoole \
+    && php -m && php --ri swoole
 
 
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

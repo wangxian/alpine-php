@@ -36,9 +36,9 @@ RUN apk add --update curl openssl wget bash\
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \
 
-    && rm -rfv /tmp/* \
+    && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
 
-    && apk del php7-dev autoconf make pkgconf build-base && php -m
+    && apk del php7-dev autoconf make pkgconf build-base .build-deps && php -m
 
 
 

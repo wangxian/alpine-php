@@ -4,16 +4,18 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 # VOLUME /app
 
+ENV SWOOLE_VERSION=4.2.7
+
 # install packages
-RUN apk add --update curl openssl wget bash\
+RUN apk add --update curl wget bash openssl libstdc++ \
+        openssl-dev php7-dev \
+        autoconf make pkgconf g++ gcc build-base linux-headers \
         php7-mcrypt php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \
-        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-session \
-        php7-sockets php7-dev autoconf make pkgconf g++ gcc openssl-dev build-base linux-headers \
+        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session \
 
     && ln -sfv /usr/bin/php7 /usr/bin/php && ln -sfv /usr/bin/php-config7 /usr/bin/php-config && ln -sfv /usr/bin/phpize7 /usr/bin/phpize \
-    && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
 
-    && rm -rfv /var/cache/apk/* \
+    && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
 
     && cd /tmp \
     && wget https://github.com/igbinary/igbinary/archive/2.0.4.zip \
@@ -30,16 +32,15 @@ RUN apk add --update curl openssl wget bash\
     && echo extension=redis.so >> /etc/php7/conf.d/01_redis.ini \
 
     && cd /tmp \
-    && wget https://github.com/swoole/swoole-src/archive/v4.2.7.zip \
-    && unzip v4.2.7.zip && cd swoole-src-4.2.7 \
+    && wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.zip \
+    && unzip v${SWOOLE_VERSION}.zip && cd swoole-src-${SWOOLE_VERSION} \
     && /usr/bin/phpize7 && ./configure --enable-openssl --enable-sockets --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \
 
+    && apk del openssl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
-
-    && apk del php7-dev autoconf make pkgconf build-base && php -m
-
+    && php -m && php --ri swoole \
 
 
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

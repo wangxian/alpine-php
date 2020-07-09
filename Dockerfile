@@ -23,8 +23,8 @@ RUN apk add --update nginx curl openssl wget bash \
     && echo extension=igbinary.so >> /etc/php7/conf.d/01_igbinary.ini \
 
     && cd /tmp \
-    && wget https://github.com/phpredis/phpredis/archive/3.1.2.zip \
-    && unzip 3.1.2.zip && cd phpredis-3.1.2 \
+    && wget https://github.com/phpredis/phpredis/archive/3.1.6.zip \
+    && unzip 3.1.6.zip && cd phpredis-3.1.6 \
     && /usr/bin/phpize7 && ./configure --enable-redis-igbinary --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=redis.so >> /etc/php7/conf.d/01_redis.ini \

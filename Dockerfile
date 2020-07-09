@@ -16,15 +16,15 @@ RUN apk add --update nginx curl openssl wget bash \
     && rm -rfv /var/cache/apk/* \
 
     && cd /tmp \
-    && wget https://github.com/igbinary/igbinary/archive/2.0.4.zip \
-    && unzip 2.0.4.zip && cd igbinary-2.0.4 \
+    && wget https://github.com/igbinary/igbinary/archive/3.1.2.zip \
+    && unzip 3.1.2.zip && cd igbinary-3.1.2 \
     && /usr/bin/phpize7 && ./configure --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=igbinary.so >> /etc/php7/conf.d/01_igbinary.ini \
 
     && cd /tmp \
-    && wget https://github.com/phpredis/phpredis/archive/3.1.6.zip \
-    && unzip 3.1.6.zip && cd phpredis-3.1.6 \
+    && wget https://github.com/phpredis/phpredis/archive/5.3.1.zip \
+    && unzip 5.3.1.zip && cd phpredis-5.3.1 \
     && /usr/bin/phpize7 && ./configure --enable-redis-igbinary --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=redis.so >> /etc/php7/conf.d/01_redis.ini \

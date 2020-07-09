@@ -4,7 +4,7 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 # VOLUME /app
 
-ENV SWOOLE_VERSION=4.4.16
+ENV SWOOLE_VERSION=4.5.2
 
 # install packages
 # php7 = 7.2.26-r0, https://pkgs.alpinelinux.org/packages?name=php7&branch=v3.9
@@ -19,15 +19,15 @@ RUN apk add --update curl wget bash openssl libstdc++ \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
 
     && cd /tmp \
-    && wget https://github.com/igbinary/igbinary/archive/3.1.0.zip \
-    && unzip 3.1.0.zip && cd igbinary-3.1.0 \
+    && wget https://github.com/igbinary/igbinary/archive/3.1.2.zip \
+    && unzip 3.1.2.zip && cd igbinary-3.1.2 \
     && /usr/bin/phpize7 && ./configure --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=igbinary.so >> /etc/php7/conf.d/01_igbinary.ini \
 
     && cd /tmp \
-    && wget https://github.com/phpredis/phpredis/archive/5.1.1.zip \
-    && unzip 5.1.1.zip && cd phpredis-5.1.1 \
+    && wget https://github.com/phpredis/phpredis/archive/5.3.1.zip \
+    && unzip 5.3.1.zip && cd phpredis-5.3.1 \
     && /usr/bin/phpize7 && ./configure --enable-redis-igbinary --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=redis.so >> /etc/php7/conf.d/01_redis.ini \

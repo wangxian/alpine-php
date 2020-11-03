@@ -12,7 +12,7 @@ RUN apk add --update curl wget bash openssl libstdc++ \
         openssl-dev php7-dev \
         autoconf make pkgconf g++ gcc build-base linux-headers \
         php7-xml php7-xmlreader php7-xmlwriter php7-simplexml php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \
-        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session \
+        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session php7-sodium \
 
     && ln -sfv /usr/bin/php7 /usr/bin/php && ln -sfv /usr/bin/php-config7 /usr/bin/php-config && ln -sfv /usr/bin/phpize7 /usr/bin/phpize \
 

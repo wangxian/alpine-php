@@ -4,7 +4,7 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 # VOLUME /app
 
-ENV SWOOLE_VERSION=4.5.7
+ENV SWOOLE_VERSION=4.5.8
 
 # install packages
 # php7 = 7.2.26-r0, https://pkgs.alpinelinux.org/packages?name=php7&branch=v3.9

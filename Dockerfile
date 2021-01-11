@@ -4,7 +4,7 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 # VOLUME /app
 
-ENV SWOOLE_VERSION=4.5.10
+ENV SWOOLE_VERSION=4.6.1
 
 # install packages
 # php7 = 7.2.26-r0, https://pkgs.alpinelinux.org/packages?name=php7&branch=v3.9
@@ -35,7 +35,7 @@ RUN apk add --update curl wget bash openssl libstdc++ \
     && cd /tmp \
     && wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.zip \
     && unzip v${SWOOLE_VERSION}.zip && cd swoole-src-${SWOOLE_VERSION} \
-    && /usr/bin/phpize7 && ./configure --enable-openssl --enable-sockets --with-php-config=/usr/bin/php-config7 \
+    && /usr/bin/phpize7 && ./configure --enable-openssl --enable-sockets --enable-mysqlnd --enable-swoole-curl --with-php-config=/usr/bin/php-config7 \
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \
 

@@ -9,7 +9,7 @@ ENV SWOOLE_VERSION=4.6.1
 # install packages
 # php7 = 7.2.26-r0, https://pkgs.alpinelinux.org/packages?name=php7&branch=v3.9
 RUN apk add --update curl wget bash openssl libstdc++ \
-        openssl-dev php7-dev \
+        openssl-dev php7-dev curl-dev \
         autoconf make pkgconf g++ gcc build-base linux-headers \
         php7-xml php7-xmlreader php7-xmlwriter php7-simplexml php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \
         php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session php7-sodium \
@@ -39,7 +39,7 @@ RUN apk add --update curl wget bash openssl libstdc++ \
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \
 
-    && apk del openssl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
+    && apk del openssl-dev curl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && php -m && php --ri swoole
 

@@ -1,4 +1,4 @@
-FROM --platform=linux/arm/v7 alpine:3.9
+FROM alpine:3.9
 MAINTAINER WangXian <xian366@126.com>
 
 WORKDIR /app

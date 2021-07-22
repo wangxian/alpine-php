@@ -1,5 +1,4 @@
-# alpine:3.9-armv7
-FROM alpine@sha256:cfd8b55d209956f63c8fcc931f5c6874984e5e0ffdcb8f45ba9085f190385d73
+FROM --platform=linux/arm/v7 alpine:3.9
 MAINTAINER WangXian <xian366@126.com>
 
 WORKDIR /app

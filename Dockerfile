@@ -11,14 +11,15 @@ RUN apk add --update nginx curl openssl wget bash \
         php7-mysqli php7-session php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip \
         php7-pecl-redis \
 
-    && ln -sfv /usr/bin/php7 /usr/bin/php && ln -sfv /usr/bin/php-config7 /usr/bin/php-config && ln -sfv /usr/bin/phpize7 /usr/bin/phpize \
+    # fix CN timezone
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
 
+    && ln -sfv /usr/bin/php7 /usr/bin/php \
     && rm -rfv /var/cache/apk/* \
 
     && php -m
 
-# Copy source to image
+# copy source to image
 ADD . .
 RUN rm -rf /app/.git && mv /app/docker/startup.sh /app
 

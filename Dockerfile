@@ -4,7 +4,7 @@ MAINTAINER WangXian <xian366@126.com>
 WORKDIR /app
 # VOLUME /app
 
-ENV SWOOLE_VERSION=4.6.1
+ENV SWOOLE_VERSION=4.6.7
 
 # install packages
 RUN apk add --update curl wget bash \

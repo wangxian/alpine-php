@@ -13,8 +13,10 @@ RUN apk add --update nginx curl openssl wget bash \
         php7-mysqli php7-session php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip \
         php7-pecl-redis \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
-    && apk add --no-cache --virtual .build-deps openssl-dev curl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
+    && ln -sfv /usr/bin/php7 /usr/bin/php \
     && cd /tmp \
+    && apk add --no-cache libstdc++ \
+    && apk add --no-cache --virtual .build-deps openssl-dev curl-dev php7-dev autoconf make pkgconf g++ gcc build-base \
     && wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.zip \
     && unzip v${SWOOLE_VERSION}.zip && cd swoole-src-${SWOOLE_VERSION} \
     && /usr/bin/phpize7 && ./configure \
@@ -26,7 +28,6 @@ RUN apk add --update nginx curl openssl wget bash \
     && make && make install \
     && echo extension=swoole.so >> /etc/php7/conf.d/01_swoole.ini \
     && apk del .build-deps \
-    && ln -sfv /usr/bin/php7 /usr/bin/php \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
     && php -m && php --ri swoole
 

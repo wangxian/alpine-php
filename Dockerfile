@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.12
 MAINTAINER WangXian <xian366@126.com>
 
 WORKDIR /app

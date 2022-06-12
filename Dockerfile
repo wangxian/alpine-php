@@ -6,7 +6,7 @@ WORKDIR /app
 
 # install packages
 RUN apk add --update nginx curl openssl wget bash \
-        php8-fpm php8-mcrypt php8-mbstring php8-curl php8-gd php8-openssl php8-opcache \
+        php8-fpm php8-mbstring php8-curl php8-gd php8-openssl php8-opcache \
         php8-xml php8-xmlreader php8-xmlwriter php8-simplexml \
         php8-mysqli php8-session php8-pdo_mysql php8-pdo_sqlite php8-phar php8-iconv php8-soap php8-zip \
         php8-pecl-redis \

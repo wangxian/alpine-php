@@ -1,4 +1,4 @@
-FROM registry.cn-beijing.aliyuncs.com/wboll/alpine:3.12
+FROM registry.cn-beijing.aliyuncs.com/wboll/alpine:3.16
 MAINTAINER WangXian <xian366@126.com>
 
 # alpine:3.16   8.0.20

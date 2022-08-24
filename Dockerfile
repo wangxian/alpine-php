@@ -10,7 +10,7 @@ ENV SWOOLE_VERSION=4.8.10
 RUN apk add --update curl wget bash \
         openssl libstdc++ openssl-dev php8-dev curl-dev autoconf make pkgconf g++ gcc build-base linux-headers \
         php8-xml php8-xmlreader php8-xmlwriter php8-simplexml php8-mbstring php8-curl php8-gd php8-openssl php8-opcache \
-        php8-mysqli php8-pdo_mysql php8-pdo_sqlite php8-phar php8-iconv php8-soap php8-zip php8-sockets php8-session php8-sodium \
+        php8-mysqli php8-pdo_mysql php8-pdo_sqlite php8-phar php8-iconv php8-soap php8-zip php8-sockets php8-session php8-sodium php8-bcmath \
     && ln -sfv /usr/bin/php8 /usr/bin/php && ln -sfv /usr/bin/php-config8 /usr/bin/php-config && ln -sfv /usr/bin/phpize8 /usr/bin/phpize \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
     && cd /tmp \

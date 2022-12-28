@@ -1,16 +1,21 @@
-FROM alpine:3.15
+FROM registry.cn-beijing.aliyuncs.com/wboll/alpine:3.15
 MAINTAINER WangXian <xian366@126.com>
+
+# alpine:3.16   8.0.20
+# alpine:3.15   7.4.33
+# alpine:3.12   7.3.33
+# alpine:3.9    7.2.33
 
 WORKDIR /app
 # VOLUME /app
 
-ENV SWOOLE_VERSION=4.8.10
+ENV SWOOLE_VERSION=4.8.12
 
 # install packages
 RUN apk add --update curl wget bash \
         openssl libstdc++ openssl-dev php7-dev curl-dev autoconf make pkgconf g++ gcc build-base linux-headers \
         php7-xml php7-xmlreader php7-xmlwriter php7-simplexml php7-mbstring php7-curl php7-gd php7-json php7-openssl php7-opcache \
-        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session php7-sodium \
+        php7-mysqli php7-pdo_mysql php7-pdo_sqlite php7-phar php7-iconv php7-soap php7-zip php7-sockets php7-session php7-sodium php7-bcmath \
     && ln -sfv /usr/bin/php7 /usr/bin/php && ln -sfv /usr/bin/php-config7 /usr/bin/php-config && ln -sfv /usr/bin/phpize7 /usr/bin/phpize \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
     && cd /tmp \

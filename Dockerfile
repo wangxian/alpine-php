@@ -1,7 +1,7 @@
 FROM registry.cn-beijing.aliyuncs.com/wboll/alpine:3.15
 MAINTAINER WangXian <xian366@126.com>
 
-# alpine:3.16   8.0.20
+# alpine:3.16   8.0.26
 # alpine:3.15   7.4.33
 # alpine:3.12   7.3.33
 # alpine:3.9    7.2.33

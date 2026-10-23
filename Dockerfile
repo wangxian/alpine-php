@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.22
 LABEL maintainer="WangXian <xian366@126.com>"
 
 WORKDIR /app
@@ -6,15 +6,15 @@ WORKDIR /app
 
 # install packages
 RUN apk add --update nginx curl openssl wget bash \
-        php81-fpm php81-mbstring php81-curl php81-gd php81-openssl php81-opcache \
-        php81-xml php81-xmlreader php81-xmlwriter php81-simplexml \
-        php81-mysqli php81-session php81-pdo_mysql php81-pdo_sqlite php81-phar php81-iconv php81-soap php81-zip \
-        php81-pecl-redis \
+        php82-fpm php82-mbstring php82-curl php82-gd php82-openssl php82-opcache \
+        php82-xml php82-xmlreader php82-xmlwriter php82-simplexml \
+        php82-mysqli php82-session php82-pdo_mysql php82-pdo_sqlite php82-phar php82-iconv php82-soap php82-zip \
+        php82-pecl-redis \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
-    && ln -sfv /usr/bin/php81 /usr/bin/php \
-    && ln -sfv /usr/bin/php81 /usr/bin/php8 \
-    && ln -sfv /etc/php81 /etc/php \
-    && ln -sfv /etc/php81 /etc/php8 \
+    && ln -sfv /usr/bin/php82 /usr/bin/php \
+    && ln -sfv /usr/bin/php82 /usr/bin/php8 \
+    && ln -sfv /etc/php82 /etc/php \
+    && ln -sfv /etc/php82 /etc/php8 \
     && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm \
     && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm8 \
     && rm -rfv /var/cache/apk/* \

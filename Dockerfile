@@ -6,17 +6,17 @@ WORKDIR /app
 
 # install packages
 RUN apk add --update nginx curl openssl wget bash \
-        php82-fpm php82-mbstring php82-curl php82-gd php82-openssl php82-opcache \
-        php82-xml php82-xmlreader php82-xmlwriter php82-simplexml \
-        php82-mysqli php82-session php82-pdo_mysql php82-pdo_sqlite php82-phar php82-iconv php82-soap php82-zip \
-        php82-pecl-redis \
+        php85-fpm php85-mbstring php85-curl php85-gd php85-openssl \
+        php85-xml php85-xmlreader php85-xmlwriter php85-simplexml \
+        php85-mysqli php85-session php85-pdo_mysql php85-pdo_sqlite php85-phar php85-iconv php85-soap php85-zip \
+        php85-pecl-redis \
     && apk add tzdata && cp /usr/share/zoneinfo/PRC /etc/localtime && echo "PRC" > /etc/timezone && apk del tzdata \
-    && ln -sfv /usr/bin/php82 /usr/bin/php \
-    && ln -sfv /usr/bin/php82 /usr/bin/php8 \
-    && ln -sfv /etc/php82 /etc/php \
-    && ln -sfv /etc/php82 /etc/php8 \
-    && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm \
-    && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm8 \
+    && ln -sfv /usr/bin/php85 /usr/bin/php \
+    && ln -sfv /usr/bin/php85 /usr/bin/php8 \
+    && ln -sfv /etc/php85 /etc/php \
+    && ln -sfv /etc/php85 /etc/php8 \
+    && ln -sfv /usr/sbin/php-fpm85 /usr/sbin/php-fpm \
+    && ln -sfv /usr/sbin/php-fpm85 /usr/sbin/php-fpm8 \
     && rm -rfv /var/cache/apk/* \
     && php -m
 

@@ -15,8 +15,8 @@ RUN apk add --update nginx curl openssl wget bash \
     && ln -sfv /usr/bin/php82 /usr/bin/php8 \
     && ln -sfv /etc/php82 /etc/php \
     && ln -sfv /etc/php82 /etc/php8 \
-    && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm \
-    && ln -sfv /usr/sbin/php-fpm81 /usr/sbin/php-fpm8 \
+    && ln -sfv /usr/sbin/php-fpm82 /usr/sbin/php-fpm \
+    && ln -sfv /usr/sbin/php-fpm82 /usr/sbin/php-fpm8 \
     && rm -rfv /var/cache/apk/* \
     && php -m
 
